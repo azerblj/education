@@ -1,0 +1,122 @@
+<div class="col-lg-3 col-md-6 mb-5"  style="margin: auto;" >
+  <h3 *ngIf="isTeacher()" class="text-primary mb-4">Join Our Team</h3>
+  <h3 *ngIf="isStudent()" class="text-primary mb-4">SignUp As Student </h3>
+  <h3  *ngIf="isParent()" class="text-primary mb-4">SignUp As Parent</h3>
+  <form action="#" [formGroup]="signupForm">
+    <div class="form-group">
+      <input type="text" class="form-control border-0 py-4" placeholder="First Name" formControlName="firstName" />
+  </div>
+  <div *ngIf="signupForm.controls['firstName'].invalid &&
+  (signupForm.controls['firstName'].touched ||
+  signupForm.controls['firstName'].dirty
+  )" >
+  <div *ngIf="signupForm.controls['firstName'].errors?.['required']" >First Name is required</div>
+
+</div>
+
+<div class="form-group">
+  <input type="text" class="form-control border-0 py-4" placeholder="last Name" formControlName="lastName" />
+</div>
+<div *ngIf="signupForm.controls['lastName'].invalid &&
+(signupForm.controls['lastName'].touched ||
+signupForm.controls['lastName'].dirty
+)" >
+<div *ngIf="signupForm.controls['lastName'].errors?.['required']" >last Name is required</div>
+
+</div>
+
+
+
+      <div class="form-group">
+          <input type="tel" class="form-control border-0 py-4" placeholder="Your Phone Number"  formControlName="tel" />
+      </div>
+      <div *ngIf="signupForm.controls['tel'].invalid &&
+      (signupForm.controls['tel'].touched ||
+      signupForm.controls['tel'].dirty
+      )" >
+      <div *ngIf="signupForm.controls['tel'].errors?.['required']" >phone number is required</div>
+      <div *ngIf="signupForm.controls['tel'].errors?.['pattern']" >phone number is incorrect</div>
+    </div>
+
+    <div class="form-group">
+      <input type="email" class="form-control border-0 py-4" placeholder="Your Email"  formControlName="email" />
+  </div>
+  <div *ngIf="signupForm.controls['email'].invalid &&
+  (signupForm.controls['email'].touched ||
+  signupForm.controls['email'].dirty
+  )" >
+  <div *ngIf="signupForm.controls['email'].errors?.['required']" >Email is required</div>
+  <div *ngIf="signupForm.controls['email'].errors?.['email']" >Email is incorrect</div>
+</div>
+
+<div class="form-group">
+  <input type="text" class="form-control border-0 py-4" placeholder="Your Adress" formControlName="adr" />
+</div>
+
+      <div class="form-group">
+          <input type="password" class="form-control border-0 py-4" placeholder="Your password"
+          formControlName="pwd" />
+      </div>
+      <div *ngIf="signupForm.controls['pwd'].invalid &&
+      (signupForm.controls['pwd'].touched ||
+      signupForm.controls['pwd'].dirty
+      )" >
+      <div *ngIf="signupForm.controls['pwd'].errors?.['required']" >pwd is required</div>
+
+    </div>
+<div >
+    <div  *ngIf="isTeacher()"  class="form-group"  >
+      <input type="text" class="form-control border-0 py-4" placeholder="Speciality" formControlName="speciality" />
+  </div>
+  <div *ngIf="signupForm.controls['speciality'].invalid &&isTeacher()&&
+  (signupForm.controls['speciality'].touched ||
+  signupForm.controls['speciality'].dirty
+  )" >
+  <div *ngIf="signupForm.controls['speciality'].errors?.['required']" >Speciality is required</div>
+
+</div>
+
+
+<div  *ngIf="isParent()"  class="form-group"  >
+  <input type="tel" class="form-control border-0 py-4" placeholder="Your kid's Phone Number" formControlName="kidtel" />
+</div>
+<div *ngIf="signupForm.controls['kidtel'].invalid &&isParent()&&
+(signupForm.controls['kidtel'].touched ||
+signupForm.controls['kidtel'].dirty
+)" >
+<div *ngIf="signupForm.controls['kidtel'].errors?.['required']" >Your kid's phone number is required</div>
+<div *ngIf="signupForm.controls['kidtel'].errors?.['pattern']" > phone number is incorrect</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+<div *ngIf="isStudent() || isTeacher() "  class="form-group">
+  <input type="file" class="form-control" style="display: none;" #filePicker (change)="onImageSelected($event)" />
+
+  <img [src]="imagePreview" alt="" class="nb-4" width="200px"  >
+  <br>
+
+  <div  *ngIf="isStudent()" class="text-center" >
+
+    <button class="btn btn-succes" (click)="filePicker.click()"  >Select photo</button>
+  </div>
+  <div  *ngIf="isTeacher()" class="text-center" >
+    <button class="btn btn-succes" (click)="filePicker.click()"  >Select CV</button>
+  </div>
+  <br>
+  </div>
+      <div>
+          <button class="btn btn-primary btn-block border-0 py-3" type="submit" (click)="add()" >SignUp Now</button>
+      </div>
+
+  </form>
+</div>

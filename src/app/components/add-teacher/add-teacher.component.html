@@ -1,0 +1,18 @@
+<div class="col-lg-3 col-md-6 mb-5" style="margin: auto;" >
+  <h3 class="text-primary mb-4">Add-Teacher</h3>
+  <form #teacherForm="ngForm" (ngSubmit)="add()" >
+      <div class="form-group">
+          <input type="text" class="form-control border-0 py-4" placeholder="Name" required="required" [(ngModel)]="teacher.name" [ngModelOptions]="{standalone:true}" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control border-0 py-4" placeholder="Speciality" required="required" [(ngModel)]="teacher.speciality" [ngModelOptions]="{standalone:true}" />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control border-0 py-4" placeholder="Experience" required="required" [(ngModel)]="teacher.experience" [ngModelOptions]="{standalone:true}" />
+  </div>
+
+      <div>
+          <button class="btn btn-primary btn-block border-0 py-3" type="submit">Add</button>
+      </div>
+  </form>
+</div>

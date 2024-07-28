@@ -1,0 +1,40 @@
+<table class="table">
+  <tr>
+    <th>firstName</th>
+    <th>lastName</th>
+    <th>phone Number</th>
+    <th>adress</th>
+    <th>Speciality</th>
+    <th>Email</th>
+    <th>Validation Statue</th>
+
+    <th>Actions</th>
+
+  </tr>
+  <tr *ngFor="let i of T" >
+    <td>{{i.firstName}}</td>
+    <td>{{i.lastName}}</td>
+    <td>{{i.tel}}</td>
+    <td>{{i.adr}}</td>
+    <td>{{i.speciality}}</td>
+    <td>{{i.email}}</td>
+    <td *ngIf="!isvalidated(i.etat)" style="color: green;">Validated</td>
+    <td *ngIf="isvalidated(i.etat)"  style="color: red;" > NON Validated</td>
+
+
+    <td   class="row" >
+      <div class="col-md-4" ><button class="btn btn-succes" (click)="gotoinfo(i._id)" >Display</button></div>
+      <div class="col-md-4" ><button class="btn btn-danger" (click)="delet(i._id)" >Delete</button></div>
+      <div class="col-md-4" ><div *ngIf="isvalidated(i.etat)" ><button class="btn btn-info"  (click)="gotoedit(i)" >Valider</button></div></div>
+
+
+
+    </td>
+  </tr>
+
+
+
+
+
+  </table>
+

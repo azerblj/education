@@ -1,0 +1,6 @@
+.error-message {
+  color: #ff0000; /* Couleur du texte en rouge */
+  padding: 5px; /* Espacement intérieur pour plus de visibilité */
+  font-size: 14px; /* Taille de la police */
+  font-weight: bold; /* Texte en gras pour attirer l'attention */
+}

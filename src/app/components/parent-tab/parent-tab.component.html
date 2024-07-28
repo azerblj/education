@@ -1,0 +1,33 @@
+<table class="table">
+  <tr>
+    <th>Student Name</th>
+    <th>Course name</th>
+    <th>Description</th>
+    <th>Duration</th>
+
+
+
+    <th  >Note</th>
+    <th >Evaluation</th>
+
+
+  </tr>
+  <tr *ngFor="let i of T" >
+    <td >{{i.title}}</td>
+    <td >{{i.description}}</td>
+    <td >{{i.duration}}</td>
+
+
+    <td >{{i.grade}}</td>
+    <td >{{i.evaluation}}</td>
+
+
+
+
+  </tr>
+
+
+
+
+
+  </table>

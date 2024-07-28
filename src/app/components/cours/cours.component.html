@@ -1,0 +1,21 @@
+<div class="card border-0 bg-light shadow-sm pb-2">
+  <img class="card-img-top mb-2" src="assets/img/class-1.jpg" alt="">
+  <div class="card-body text-center">
+      <h4 class="card-title">{{courobj.title}}</h4>
+      <p class="card-text">{{courobj.description}}</p>
+  </div>
+  <div class="card-footer bg-transparent py-4 px-5">
+
+
+      <div class="row border-bottom">
+          <div class="col-6 py-1 text-right border-right"><strong>Duration</strong></div>
+          <div class="col-6 py-1">{{courobj.duration}}</div>
+      </div>
+      <div  class="row border-bottom">
+        <div class="col-6 py-1 text-right border-right"><strong>Teacher:</strong></div>
+        <div  class="col-6 py-1">{{courobj?.teacher.firstName}} {{courobj.teacher.lastName}} </div>
+    </div>
+
+  </div>
+
+</div>

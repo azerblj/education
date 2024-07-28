@@ -1,0 +1,15 @@
+<div class="container-fluid pt-5">
+  <div class="container">
+
+      <div class="col-lg-3 col-md-6 mb-5" style="margin: auto;"  >
+        <h3 class="text-primary mb-4">search Courses</h3>
+        <form action="#" #SearchForm="ngForm" (ngSubmit)="search()">
+            <div class="form-group">
+              <input type="number" class="form-control border-0 py-2" placeholder="Price" [(ngModel)]="sea.price" [ngModelOptions]="{standalone:true}"  >
+            </div>
+
+            <div>
+                <button class="btn btn-primary btn-block border-0 py-3" type="submit">Search</button>
+            </div>
+        </form>
+      </div>

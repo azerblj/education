@@ -1,0 +1,18 @@
+<div class="col-lg-3 col-md-6 mb-5"  style="margin: auto; padding: 35px;" >
+  <h3 class="text-primary mb-3" style="text-align: center;" >Parental Space</h3>
+<form action="#" [formGroup]="parentForm">
+<input class="form-control border-0 py-4" type="text" placeholder="Put your kid Number"  formControlName="tel" >
+<div *ngIf="parentForm.controls['tel'].invalid &&
+(parentForm.controls['tel'].touched ||
+parentForm.controls['tel'].dirty
+)" >
+<div *ngIf="parentForm.controls['tel'].errors?.['required']" >phone number is required</div>
+<div *ngIf="parentForm.controls['tel'].errors?.['pattern']" >phone number is incorrect</div>
+</div>
+<br>
+
+<button class="btn btn-primary btn-block border-0 py-3" type="submit" (click)="search()" >Search</button>
+</form>
+
+
+</div>

@@ -1,0 +1,18 @@
+<div class="col-lg-3 col-md-6 mb-5" style="margin: auto;" >
+  <h3 class="text-primary mb-4">Edit-Teacher</h3>
+  <form action="#" #teacherForm="ngForm" >
+      <div class="form-group">
+          <input type="text" class="form-control border-0 py-4" placeholder="Name" [(ngModel)]="T.name" [ngModelOptions]="{standalone:true}" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control border-0 py-4" placeholder="Speciality" required="required" [(ngModel)]="T.speciality" [ngModelOptions]="{standalone:true}" />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control border-0 py-4" placeholder="Experience" required="required" [(ngModel)]="T.experience" [ngModelOptions]="{standalone:true}" />
+  </div>
+
+      <div>
+          <button class="btn btn-primary btn-block border-0 py-3" type="submit" (click)="edit()" >Edit</button>
+      </div>
+  </form>
+</div>

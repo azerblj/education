@@ -1,0 +1,29 @@
+<div class="col-lg-3 col-md-6 mb-5"  style="margin: auto; padding: 50px;" >
+  <h3 class="text-primary mb-3" style="text-align: center;" >Login</h3>
+  <form action="#" [formGroup]="loginForm"  >
+      <div class="form-group">
+        <input type="tel" class="form-control border-0 py-4" placeholder="tel" formControlName="tel" >
+      </div>
+      <div *ngIf="loginForm.controls['tel'].invalid &&
+      (loginForm.controls['tel'].touched ||
+      loginForm.controls['tel'].dirty
+      )" >
+      <div *ngIf="loginForm.controls['tel'].errors?.['required']" class="error-message" ><span  >phone Number is required </span></div>
+      <div *ngIf="loginForm.controls['tel'].errors?.['pattern']" class="error-message" ><span> phone number is incorrect</span></div>
+    </div>
+      <div class="form-group">
+        <input type="password" class="form-control border-0 py-4" placeholder="Password" formControlName="pwd" >
+      </div>
+      <div *ngIf="loginForm.controls['pwd'].invalid &&
+      (loginForm.controls['pwd'].touched ||
+      loginForm.controls['pwd'].dirty
+      )" >
+      <div *ngIf="loginForm.controls['pwd'].errors?.['required']"  class="error-message" >Password is required</div>
+
+    </div>
+      <div>
+          <button class="btn btn-primary btn-block border-0 py-3" type="submit" [disabled]="loginForm.invalid" (click)="logine()"  >Login Now</button>
+      </div>
+      <div style="color: red;">{{msg}}</div>
+  </form>
+</div>

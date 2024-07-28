@@ -1,0 +1,36 @@
+<table class="table">
+  <tr>
+    <th>Course Name</th>
+    <th>student List</th>
+    <th >Note</th>
+    <th >Evaluation</th>
+    <th>Actions</th>
+
+  </tr>
+  <tr  >
+    <td><select (change)="selectedcour($event)" name="" id="">
+      <option value="">select cour</option>
+      <option  style="color: black;" *ngFor="let i of T" [value]="i._id"  >{{i.title }} </option>
+    </select></td>
+
+    <td> <select (change)="selectedStudent($event)" name="" id="">
+      <option value="">select student</option>
+      <option  style="color: black;" *ngFor="let j of courtab.studentGrades" [value]="j.student._id"  >{{j.student.firstName }} {{j.student.lastName }} </option>
+    </select></td>
+
+     <td  ><input [ngStyle]="{'color': color(grades.note)}"  type="number" id="note" placeholder="Note" [(ngModel)]="grades.note" [ngModelOptions]="{standalone:true}" ></td>
+    <td ><input [ngStyle]="{'color': color(grades.note)}"  type="text" id="eva" placeholder="Evaluation" [(ngModel)]="grades.eva" [ngModelOptions]="{standalone:true}" ></td>
+
+
+    <td>
+      <button class="btn btn-info" (click)="add()" >Add</button>
+
+    </td>
+
+  </tr>
+
+
+
+
+
+  </table>

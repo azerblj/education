@@ -1,0 +1,42 @@
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Duration</th>
+
+
+
+    <th *ngIf="isstudent() || isParent()   " >Note</th>
+    <th *ngIf="isstudent() || isParent()   " >Evaluation</th>
+
+    <th *ngIf="!isParent()" >Actions</th>
+
+  </tr>
+  <tr *ngFor="let i of T" >
+    <td *ngIf="!isstudent() && !isParent() " >{{i.title}}</td>
+    <td *ngIf="!isstudent() && !isParent() " >{{i.description}}</td>
+    <td *ngIf="!isstudent() && !isParent() " >{{i.duration}}</td>
+
+    <td *ngIf="isstudent() || isParent() " >{{i.courses.title}}</td>
+    <td *ngIf="isstudent() || isParent() " >{{i.courses.description}}</td>
+    <td *ngIf="isstudent() || isParent() " >{{i.courses.duration}}</td>
+    <td *ngIf="(isstudent() || isParent()) && !isemppty(i.grade)  " >{{i.grade}}</td>
+    <td *ngIf="(isstudent() || isParent()) && !isemppty(i.evaluation)  "  >{{i.evaluation}}</td>
+    <td style="color: red;"  *ngIf="(isstudent() || isParent()) && isemppty(i.grade) " >not ready</td>
+    <td style="color: red;"  *ngIf="(isstudent() || isParent()) && isemppty(i.evaluation) " >not ready</td>
+
+
+
+    <td *ngIf="!isParent()" >
+      <button *ngIf="isstudent()" class="btn btn-succes" (click)="goToInfo(i.courses._id)" >Display</button>
+      <button  *ngIf="!isstudent()  " class="btn btn-succes" (click)="goToInfo(i._id)" >Display</button>
+      <button *ngIf="isteacher()"  class="btn btn-info" (click)="goToEdit(i._id)" >Edit</button>
+      <button *ngIf="!isstudent()" class="btn btn-danger" (click)="delet(i._id)" >Delete</button>
+    </td>
+  </tr>
+
+
+
+
+
+  </table>
